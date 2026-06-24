@@ -31,7 +31,7 @@ function Dashboard() {
          useEffect(() => {
         axios
     .get(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=b053a318b87e4919a7a8eee5636161d2"
+        "https://gnews.io/api/v4/top-headlines?category=general&lang=en&max=10&apikey=756643ba4e713657b6c2a0f746d92be8"
         )
         .then((res) => {
          setArticles(res.data.articles);
@@ -157,7 +157,7 @@ function Dashboard() {
          {articles.length > 0 && (
            <>
           <img
-           src={articles[newsIndex]?.urlToImage}
+           src={articles[newsIndex]?.image}
           alt="news"
           width="100%"
          />
