@@ -12,7 +12,29 @@ function Dashboard() {
     const [isRunning, setIsRunning] = useState(true);
     const [newsIndex, setNewsIndex] = useState(0);
     const [weather, setWeather] = useState(null);
-    const [articles, setArticles] = useState([]);
+    const [articles] = useState([
+  {
+    title: "AI is Transforming Software Development",
+    description: "Artificial Intelligence is helping developers build faster applications.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800",
+  },
+  {
+    title: "React Remains Popular in 2026",
+    description: "React continues to dominate frontend development.",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800",
+  },
+  {
+    title: "Cloud Computing Growth",
+    description: "Cloud adoption is increasing across industries.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800",
+  },
+  {
+    title: "Cyber Security Trends",
+    description: "Organizations are investing more in cyber security technologies.",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800",
+   },
+]); 
+    
     const movie = localStorage.getItem("movie");
       useEffect(() => {
      axios.get(
@@ -28,18 +50,6 @@ function Dashboard() {
     });
       }, []);
 
-         useEffect(() => {
-        axios
-    .get(
-        "https://gnews.io/api/v4/top-headlines?category=general&lang=en&max=10&apikey=756643ba4e713657b6c2a0f746d92be8"
-        )
-        .then((res) => {
-         setArticles(res.data.articles);
-         })
-         .catch((err) => {
-         console.log(err);
-         });
-        }, []);
     
 
     const userName = localStorage.getItem("name");
